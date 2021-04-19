@@ -20,9 +20,9 @@ public class CustomerRestController {
         return customerRepository.findAll();
     }
 
-    @GetMapping("/{id}")
-    public Customer getOne(@PathVariable int id){
-        return customerRepository.findById(id).get();
+    @GetMapping("/{customerId}")
+    public Customer getOne(@PathVariable int customerId){
+        return customerRepository.findById(customerId).get();
     }
 
     @GetMapping("/customer/{customerId}")
@@ -37,18 +37,18 @@ public class CustomerRestController {
         return record;
     }
 
-    @PutMapping("/{id}")
-    public Customer update(@PathVariable int id, @RequestBody Customer customer) {
-        Customer record = customerRepository.findById(id).get();
+    @PutMapping("/{customerId}")
+    public Customer update(@PathVariable int customerId, @RequestBody Customer customer) {
+        Customer record = customerRepository.findById(customerId).get();
         record.setCustomerName(customer.getCustomerName());
         customerRepository.save(record);
         return record;
     }
 
-    @DeleteMapping("/{id}")
-    public Customer delete(@PathVariable int id) {
-        Customer record = customerRepository.findById(id).get();
-        customerRepository.deleteById(id);
+    @DeleteMapping("/{customerId}")
+    public Customer delete(@PathVariable int customerId) {
+        Customer record = customerRepository.findById(customerId).get();
+        customerRepository.deleteById(customerId);
         return record;
     }
 

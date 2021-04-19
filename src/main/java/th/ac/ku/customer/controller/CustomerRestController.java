@@ -25,6 +25,11 @@ public class CustomerRestController {
         return customerRepository.findById(id).get();
     }
 
+    @GetMapping("/customer/{customerId}")
+    public List<Customer> getAllCustomerId(@PathVariable int customerId) {
+        return customerRepository.findByCustomerId(customerId);
+    }
+
     @PostMapping
     public Customer create(@RequestBody Customer customer) {
         Customer record = customerRepository.save(customer);

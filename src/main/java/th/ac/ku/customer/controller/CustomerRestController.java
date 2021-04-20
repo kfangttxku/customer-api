@@ -41,6 +41,8 @@ public class CustomerRestController {
     public Customer update(@PathVariable int customerId, @RequestBody Customer customer) {
         Customer record = customerRepository.findById(customerId).get();
         record.setCustomerName(customer.getCustomerName());
+        record.setCustomerAddress(customer.getCustomerAddress());
+        record.setCustomerPhone(customer.getCustomerPhone());
         customerRepository.save(record);
         return record;
     }
